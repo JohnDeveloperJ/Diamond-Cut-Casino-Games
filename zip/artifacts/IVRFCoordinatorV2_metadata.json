@@ -1,0 +1,463 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "subId",
+						"type": "uint64"
+					}
+				],
+				"name": "acceptSubscriptionOwnerTransfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "subId",
+						"type": "uint64"
+					},
+					{
+						"internalType": "address",
+						"name": "consumer",
+						"type": "address"
+					}
+				],
+				"name": "addConsumer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "subId",
+						"type": "uint64"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "cancelSubscription",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "createSubscription",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "subId",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getFeeConfig",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint24",
+						"name": "",
+						"type": "uint24"
+					},
+					{
+						"internalType": "uint24",
+						"name": "",
+						"type": "uint24"
+					},
+					{
+						"internalType": "uint24",
+						"name": "",
+						"type": "uint24"
+					},
+					{
+						"internalType": "uint24",
+						"name": "",
+						"type": "uint24"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getRequestConfig",
+				"outputs": [
+					{
+						"internalType": "uint16",
+						"name": "",
+						"type": "uint16"
+					},
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					},
+					{
+						"internalType": "bytes32[]",
+						"name": "",
+						"type": "bytes32[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "subId",
+						"type": "uint64"
+					}
+				],
+				"name": "getSubscription",
+				"outputs": [
+					{
+						"internalType": "uint96",
+						"name": "balance",
+						"type": "uint96"
+					},
+					{
+						"internalType": "uint64",
+						"name": "reqCount",
+						"type": "uint64"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address[]",
+						"name": "consumers",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "subId",
+						"type": "uint64"
+					}
+				],
+				"name": "pendingRequestExists",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "subId",
+						"type": "uint64"
+					},
+					{
+						"internalType": "address",
+						"name": "consumer",
+						"type": "address"
+					}
+				],
+				"name": "removeConsumer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "keyHash",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint64",
+						"name": "subId",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint16",
+						"name": "minimumRequestConfirmations",
+						"type": "uint16"
+					},
+					{
+						"internalType": "uint32",
+						"name": "callbackGasLimit",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "numWords",
+						"type": "uint32"
+					}
+				],
+				"name": "requestRandomWords",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "subId",
+						"type": "uint64"
+					},
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "requestSubscriptionOwnerTransfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"acceptSubscriptionOwnerTransfer(uint64)": {
+					"details": "will revert if original owner of subId has not requested that msg.sender become the new owner.",
+					"params": {
+						"subId": "- ID of the subscription"
+					}
+				},
+				"addConsumer(uint64,address)": {
+					"params": {
+						"consumer": "- New consumer which can use the subscription",
+						"subId": "- ID of the subscription"
+					}
+				},
+				"cancelSubscription(uint64,address)": {
+					"params": {
+						"subId": "- ID of the subscription",
+						"to": "- Where to send the remaining LINK to"
+					}
+				},
+				"createSubscription()": {
+					"details": "You can manage the consumer set dynamically with addConsumer/removeConsumer.Note to fund the subscription, use transferAndCall. For exampleLINKTOKEN.transferAndCall(address(COORDINATOR),amount,abi.encode(subId));",
+					"returns": {
+						"subId": "- A unique subscription id."
+					}
+				},
+				"getRequestConfig()": {
+					"returns": {
+						"_0": "minimumRequestConfirmations global min for request confirmations",
+						"_1": "maxGasLimit global max for request gas limit",
+						"_2": "s_provingKeyHashes list of registered key hashes"
+					}
+				},
+				"getSubscription(uint64)": {
+					"params": {
+						"subId": "- ID of the subscription"
+					},
+					"returns": {
+						"balance": "- LINK balance of the subscription in juels.",
+						"consumers": "- list of consumer address which are able to use this subscription.",
+						"owner": "- owner of the subscription.",
+						"reqCount": "- number of requests for this subscription, determines fee tier."
+					}
+				},
+				"removeConsumer(uint64,address)": {
+					"params": {
+						"consumer": "- Consumer to remove from the subscription",
+						"subId": "- ID of the subscription"
+					}
+				},
+				"requestRandomWords(bytes32,uint64,uint16,uint32,uint32)": {
+					"params": {
+						"callbackGasLimit": "- How much gas you'd like to receive in your fulfillRandomWords callback. Note that gasleft() inside fulfillRandomWords may be slightly less than this amount because of gas used calling the function (argument decoding etc.), so you may need to request slightly more than you expect to have inside fulfillRandomWords. The acceptable range is [0, maxGasLimit]",
+						"keyHash": "- Corresponds to a particular oracle job which uses that key for generating the VRF proof. Different keyHash's have different gas price ceilings, so you can select a specific one to bound your maximum per request cost.",
+						"minimumRequestConfirmations": "- How many blocks you'd like the oracle to wait before responding to the request. See SECURITY CONSIDERATIONS for why you may want to request more. The acceptable range is [minimumRequestBlockConfirmations, 200].",
+						"numWords": "- The number of uint256 random values you'd like to receive in your fulfillRandomWords callback. Note these numbers are expanded in a secure way by the VRFCoordinator from a single random value supplied by the oracle.",
+						"subId": "- The ID of the VRF subscription. Must be funded with the minimum subscription balance required for the selected keyHash."
+					},
+					"returns": {
+						"requestId": "- A unique identifier of the request. Can be used to match a request to a response in fulfillRandomWords."
+					}
+				},
+				"requestSubscriptionOwnerTransfer(uint64,address)": {
+					"params": {
+						"newOwner": "- proposed new owner of the subscription",
+						"subId": "- ID of the subscription"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"acceptSubscriptionOwnerTransfer(uint64)": {
+					"notice": "Request subscription owner transfer."
+				},
+				"addConsumer(uint64,address)": {
+					"notice": "Add a consumer to a VRF subscription."
+				},
+				"cancelSubscription(uint64,address)": {
+					"notice": "Cancel a subscription"
+				},
+				"createSubscription()": {
+					"notice": "Create a VRF subscription."
+				},
+				"getRequestConfig()": {
+					"notice": "Get configuration relevant for making requests"
+				},
+				"getSubscription(uint64)": {
+					"notice": "Get a VRF subscription."
+				},
+				"removeConsumer(uint64,address)": {
+					"notice": "Remove a consumer from a VRF subscription."
+				},
+				"requestRandomWords(bytes32,uint64,uint16,uint32,uint32)": {
+					"notice": "Request a set of random words."
+				},
+				"requestSubscriptionOwnerTransfer(uint64,address)": {
+					"notice": "Request subscription owner transfer."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Common.sol": "IVRFCoordinatorV2"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
+			"keccak256": "0xfe4e8bb4861bb3860ba890ab91a3b818ec66e5a8f544fb608cfcb73f433472cd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://644cff84052e1e82b5bb502b2a46e8f142a62b0db4cd9b38200798ba8373c6f7",
+				"dweb:/ipfs/QmTa99QHrJBn3SXDizquPBUiTxVCNKQrHgaWJhuds5Sce2"
+			]
+		},
+		"@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol": {
+			"keccak256": "0xa9f8b7e09811f4ac9f421116b5d6bcf50b5748025c0cb012aaf5ff7c39a6b46a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d66b2096987616cda4611c109d9904863872ca5852d736b30f0e19e49afde35f",
+				"dweb:/ipfs/Qmc6jpm3k3YuJG7U2s3FWr81Vk2rdQBhdqD9sA6b8Cr9BE"
+			]
+		},
+		"@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0xa535a5df777d44e945dd24aa43a11e44b024140fc340ad0dfe42acf4002aade1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://41319e7f621f2dc3733511332c4fd032f8e32ad2aa7fd6f665c19741d9941a34",
+				"dweb:/ipfs/QmcYR3bd862GD1Bc7jwrU9bGxrhUu5na1oP964bDCu2id1"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol": {
+			"keccak256": "0x6008dabfe393240d73d7dd7688033f72740d570aa422254d29a7dce8568f3aff",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f5196ec75139918c6c7bb4251b36395e668f1fa6d206beba7e7520e74913940d",
+				"dweb:/ipfs/QmSyqjksXxmm2mCG6qRd1yuwLykypkSVBbnBnGqJRcuJMi"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+			"keccak256": "0x37bb49513c49c87c4642a891b13b63571bc87013dde806617aa1efb54605f386",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b3036b3a83b7c48f96641f2a9002b9f2dcb6a5958dd670894ada21ae8229b3d0",
+				"dweb:/ipfs/QmUNfSBdoVtjhETaUJCYcaC7pTMgbhht926tJ2uXJbiVd3"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0xaf28a975a78550e45f65e559a3ad6a5ad43b9b8a37366999abd1b7084eb70721",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b7bd24e224f67f65bfadf85dc2929fa965456bb2415478bd0125471b5ce35245",
+				"dweb:/ipfs/QmRaydGr8BTHs1kvaZfsNU69pKzUAGFrvABn1KiRSbE51y"
+			]
+		},
+		"Common.sol": {
+			"keccak256": "0xd96bbe24947a125b9e0b956b333bceb62a0da5f983145fe68349ac2ee44e325f",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://4b48bfb9aaf17b1b4869757a672c4639f5c6f6c16ae0aa4bfa6c49eecbd3bec7",
+				"dweb:/ipfs/QmTAaMJCDojLTvZgUNH42VHBGDUTAw1i9yfgJraA6a7oZp"
+			]
+		}
+	},
+	"version": 1
+}

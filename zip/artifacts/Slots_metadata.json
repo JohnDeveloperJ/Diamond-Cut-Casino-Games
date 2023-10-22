@@ -1,0 +1,811 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_bankroll",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_vrf",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "link_eth_feed",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_forwarder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16[]",
+						"name": "_multipliers",
+						"type": "uint16[]"
+					},
+					{
+						"internalType": "uint16[]",
+						"name": "_outcomeNum",
+						"type": "uint16[]"
+					},
+					{
+						"internalType": "uint16",
+						"name": "_numOutcomes",
+						"type": "uint16"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					}
+				],
+				"name": "AddressEmptyCode",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "AddressInsufficientBalance",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestID",
+						"type": "uint256"
+					}
+				],
+				"name": "AwaitingVRF",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "have",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "want",
+						"type": "uint256"
+					}
+				],
+				"name": "BlockNumberTooLow",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "FailedInnerCall",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "maxNumBets",
+						"type": "uint256"
+					}
+				],
+				"name": "InvalidNumBets",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "required",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "sent",
+						"type": "uint256"
+					}
+				],
+				"name": "InvalidValue",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotApprovedBankroll",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotAwaitingVRF",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "want",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "have",
+						"type": "address"
+					}
+				],
+				"name": "NotOwner",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "have",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "want",
+						"type": "address"
+					}
+				],
+				"name": "OnlyCoordinatorCanFulfill",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "suspensionTime",
+						"type": "uint256"
+					}
+				],
+				"name": "PlayerSuspended",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "RefundFailed",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					}
+				],
+				"name": "SafeERC20FailedOperation",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "TransferFailed",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "wager",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "maxWager",
+						"type": "uint256"
+					}
+				],
+				"name": "WagerAboveLimit",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ZeroWager",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "playerAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "wager",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "payout",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint16[]",
+						"name": "slotIDs",
+						"type": "uint16[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256[]",
+						"name": "multipliers",
+						"type": "uint256[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256[]",
+						"name": "payouts",
+						"type": "uint256[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint32",
+						"name": "numGames",
+						"type": "uint32"
+					}
+				],
+				"name": "Slots_Outcome_Event",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "playerAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "wager",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint32",
+						"name": "numBets",
+						"type": "uint32"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "stopGain",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "stopLoss",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "VRFFee",
+						"type": "uint256"
+					}
+				],
+				"name": "Slots_Play_Event",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "wager",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					}
+				],
+				"name": "Slots_Refund_Event",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "Bankroll",
+				"outputs": [
+					{
+						"internalType": "contract IBankRoll",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ChainLinkVRF",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "IChainLinkVRF",
+				"outputs": [
+					{
+						"internalType": "contract IVRFCoordinatorV2",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "LINK_ETH_FEED",
+				"outputs": [
+					{
+						"internalType": "contract AggregatorV3Interface",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Slots_GetMultipliers",
+				"outputs": [
+					{
+						"internalType": "uint16[]",
+						"name": "multipliers",
+						"type": "uint16[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					}
+				],
+				"name": "Slots_GetState",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "wager",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "stopGain",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "stopLoss",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "requestID",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "tokenAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint64",
+								"name": "blockNumber",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint32",
+								"name": "numBets",
+								"type": "uint32"
+							}
+						],
+						"internalType": "struct Slots.SlotsGame",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "wager",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint32",
+						"name": "numBets",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "stopGain",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "stopLoss",
+						"type": "uint256"
+					}
+				],
+				"name": "Slots_Play",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Slots_Refund",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "VRFFees",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_trustedForwarder",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "gasAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "getVRFFee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "fee",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "forwarder",
+						"type": "address"
+					}
+				],
+				"name": "isTrustedForwarder",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "randomWords",
+						"type": "uint256[]"
+					}
+				],
+				"name": "rawFulfillRandomWords",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "transferFees",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"errors": {
+				"AddressEmptyCode(address)": [
+					{
+						"details": "There's no code at `target` (it is not a contract)."
+					}
+				],
+				"AddressInsufficientBalance(address)": [
+					{
+						"details": "The ETH balance of the account is not enough to perform the operation."
+					}
+				],
+				"FailedInnerCall()": [
+					{
+						"details": "A call to an address target failed. The target may have reverted."
+					}
+				],
+				"SafeERC20FailedOperation(address)": [
+					{
+						"details": "An operation with an ERC20 token failed."
+					}
+				]
+			},
+			"events": {
+				"Slots_Outcome_Event(address,uint256,uint256,address,uint16[],uint256[],uint256[],uint32)": {
+					"details": "event emitted by the VRF callback with the bet results",
+					"params": {
+						"multipliers": "multiplier of the slots result",
+						"numGames": "number of games performed",
+						"payout": "total payout transfered to the player",
+						"payouts": "individual payouts for each bet",
+						"playerAddress": "address of the player that made the bet",
+						"slotIDs": "slots result",
+						"tokenAddress": "address of token the wager was made and payout, 0 address is considered the native coin",
+						"wager": "wager amount"
+					}
+				},
+				"Slots_Play_Event(address,uint256,address,uint32,uint256,uint256,uint256)": {
+					"details": "event emitted at the start of the game",
+					"params": {
+						"numBets": "number of bets the player intends to make",
+						"playerAddress": "address of the player that made the bet",
+						"stopGain": "gain value at which the betting stop if a gain is reached",
+						"stopLoss": "loss value at which the betting stop if a loss is reached",
+						"tokenAddress": "address of token the wager was made, 0 address is considered the native coin",
+						"wager": "wagered amount"
+					}
+				},
+				"Slots_Refund_Event(address,uint256,address)": {
+					"details": "event emitted when a refund is done in slots",
+					"params": {
+						"player": "address of the player reciving the refund",
+						"tokenAddress": "address of token the refund was made in",
+						"wager": "amount of wager that was refunded"
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"Slots_GetMultipliers()": {
+					"details": "function to view the current slots multipliers",
+					"returns": {
+						"multipliers": "multipliers for all slots outcomes"
+					}
+				},
+				"Slots_GetState(address)": {
+					"details": "function to get current request player is await from VRF, returns 0 if none",
+					"params": {
+						"player": "address of the player to get the state"
+					}
+				},
+				"Slots_Play(uint256,address,uint32,uint256,uint256)": {
+					"details": "Function to play slots, takes the user wager saves bet parameters and makes a request to the VRF",
+					"params": {
+						"numBets": "number of bets to make, and amount of random numbers to request",
+						"stopGain": "treshold value at which the bets stop if a certain profit is obtained",
+						"stopLoss": "treshold value at which the bets stop if a certain loss is obtained",
+						"tokenAddress": "address of token to bet, 0 address is considered the native coin",
+						"wager": "wager amount"
+					}
+				},
+				"Slots_Refund()": {
+					"details": "Function to refund user in case of VRF request failling"
+				},
+				"getVRFFee(uint256)": {
+					"details": "calculates in form of native token the fee charged by chainlink VRF",
+					"returns": {
+						"fee": "amount of fee user has to pay"
+					}
+				},
+				"rawFulfillRandomWords(uint256,uint256[])": {
+					"details": "function called by Chainlink VRF with random numbers",
+					"params": {
+						"randomWords": "array of random numbers",
+						"requestId": "id provided when the request was made"
+					}
+				},
+				"transferFees(address)": {
+					"details": "function to transfer VRF fees acumulated in the contract to the Bankroll Can only be called by owner"
+				}
+			},
+			"title": "slots game, players put in a wager and recieve payout depending on the slots outcome",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Slots.sol": "Slots"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
+			"keccak256": "0xfe4e8bb4861bb3860ba890ab91a3b818ec66e5a8f544fb608cfcb73f433472cd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://644cff84052e1e82b5bb502b2a46e8f142a62b0db4cd9b38200798ba8373c6f7",
+				"dweb:/ipfs/QmTa99QHrJBn3SXDizquPBUiTxVCNKQrHgaWJhuds5Sce2"
+			]
+		},
+		"@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol": {
+			"keccak256": "0xa9f8b7e09811f4ac9f421116b5d6bcf50b5748025c0cb012aaf5ff7c39a6b46a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d66b2096987616cda4611c109d9904863872ca5852d736b30f0e19e49afde35f",
+				"dweb:/ipfs/Qmc6jpm3k3YuJG7U2s3FWr81Vk2rdQBhdqD9sA6b8Cr9BE"
+			]
+		},
+		"@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0xa535a5df777d44e945dd24aa43a11e44b024140fc340ad0dfe42acf4002aade1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://41319e7f621f2dc3733511332c4fd032f8e32ad2aa7fd6f665c19741d9941a34",
+				"dweb:/ipfs/QmcYR3bd862GD1Bc7jwrU9bGxrhUu5na1oP964bDCu2id1"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol": {
+			"keccak256": "0x6008dabfe393240d73d7dd7688033f72740d570aa422254d29a7dce8568f3aff",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f5196ec75139918c6c7bb4251b36395e668f1fa6d206beba7e7520e74913940d",
+				"dweb:/ipfs/QmSyqjksXxmm2mCG6qRd1yuwLykypkSVBbnBnGqJRcuJMi"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+			"keccak256": "0x37bb49513c49c87c4642a891b13b63571bc87013dde806617aa1efb54605f386",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b3036b3a83b7c48f96641f2a9002b9f2dcb6a5958dd670894ada21ae8229b3d0",
+				"dweb:/ipfs/QmUNfSBdoVtjhETaUJCYcaC7pTMgbhht926tJ2uXJbiVd3"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0xaf28a975a78550e45f65e559a3ad6a5ad43b9b8a37366999abd1b7084eb70721",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b7bd24e224f67f65bfadf85dc2929fa965456bb2415478bd0125471b5ce35245",
+				"dweb:/ipfs/QmRaydGr8BTHs1kvaZfsNU69pKzUAGFrvABn1KiRSbE51y"
+			]
+		},
+		"Common.sol": {
+			"keccak256": "0xd96bbe24947a125b9e0b956b333bceb62a0da5f983145fe68349ac2ee44e325f",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://4b48bfb9aaf17b1b4869757a672c4639f5c6f6c16ae0aa4bfa6c49eecbd3bec7",
+				"dweb:/ipfs/QmTAaMJCDojLTvZgUNH42VHBGDUTAw1i9yfgJraA6a7oZp"
+			]
+		},
+		"Slots.sol": {
+			"keccak256": "0x14b668ea3fd7dfcb21ebd5ddb3a216ce46401b35b42a6823edc36f65ddc5d6e3",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://19b10c7ba8ce4d41542d9984ffdf8b130f3071ce90c349c2f6e3457ce60f7564",
+				"dweb:/ipfs/QmRiMVpJ57ctJHFGXBMDffeBtMTDVwrkPfLyGpqyQ7qgZ6"
+			]
+		}
+	},
+	"version": 1
+}
