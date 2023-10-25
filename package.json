@@ -14,7 +14,8 @@
     "hardhat": "^2.18.3"
   },
   "dependencies": {
-    "@chainlink/contracts": "^0.8.0",
+    "@chainlink/contracts": "^0.5.1",
+    "@nomiclabs/hardhat-waffle": "^2.0.6",
     "@openzeppelin/contracts": "^5.0.0"
   }
 }
