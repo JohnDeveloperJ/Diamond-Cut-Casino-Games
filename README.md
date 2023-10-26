@@ -2,7 +2,8 @@
 
 
 
-![image](https://github.com/JohnDeveloperJ/Diamond-Cut-Casino-Games/assets/143453887/4eedd573-47f4-482d-bf76-923a7138151b)
+![image](https://github.com/JohnDeveloperJ/Diamond-Cut-Casino-Games/assets/143453887/a57fc58f-de9c-4307-b580-42f9959f1c04)
+
 
 # Diamond-Cut Cross-Chain Casino
 
