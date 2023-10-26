@@ -1,12 +1,8 @@
 # Diamond-Cut-Casino
 
-![Diamond Cut Casino Logo](![theworldeater_Create_an_engaging_interactive_and_visually_stun_08923558-ae29-4ad3-9cd5-61310cfefa10](https://github.com/JohnDeveloperJ/Diamond-Cut-Casino-Games/assets/143453887/8a66ab34-e4aa-45b0-b67c-cd944c492039)
-)
 
 
-
-
-
+![image](https://github.com/JohnDeveloperJ/Diamond-Cut-Casino-Games/assets/143453887/4eedd573-47f4-482d-bf76-923a7138151b)
 
 # Diamond-Cut Cross-Chain Casino
 
@@ -61,5 +57,4 @@ To begin your journey with Diamond-Cut Cross-Chain Casino, consult our documenta
 We value your feedback and welcome contributions to enhance our platform. Whether you're a player or a developer, your insights and ideas help us continually improve. If you have suggestions or contributions, please feel free to reach out to us.
 
 ---
-
 
