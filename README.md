@@ -2,7 +2,8 @@
 
 # Diamond-Cut-Casino: Common.sol Contract
 
-![image](https://github.com/JohnDeveloperJ/Diamond-Cut-Casino-Games/assets/143453887/a57fc58f-de9c-4307-b580-42f9959f1c04)
+![theworldeater_Create_an_engaging_interactive_and_visually_stun_67dd404b-7f13-411b-9e08-175a3394dd49](https://github.com/JohnDeveloperJ/Diamond-Cut-Casino-Games/assets/143453887/55a54585-e343-4704-adcc-94533d2240d6)
+
 
 ## Introduction
 
